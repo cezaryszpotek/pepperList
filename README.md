@@ -16,6 +16,8 @@ Parameters can be used in program:
 
 After the given parameter enter the value after equal sign, e.g. --days=5
 
+Calling a script:
+$python3 main.py name_of_shops parameters
 
 
 Example:
