@@ -132,7 +132,7 @@ def searchingCore(name, url, headless_param, parameters):   #products search
                 temp = int(arg[arg.find('=') + 1:])
             elif '--days' in arg or '-d' in arg:
                 days = int(arg[arg.find('=') + 1:])
-            elif '--pages_num' in arg or '-n' in arg:
+            elif '--pages_num' in arg or '-p' in arg:
                 pages_num = int(arg[arg.find('=') + 1:])
             else:
                 print(arg, ' - parameter not found!')
