@@ -1,6 +1,7 @@
 # pepperList
 
 A script that creates a ASCI qr code with discounted products of selected stores in form of list.
+Project use selenium to scrape website with given parameters.
 
 
 Parameters can be used in program:
