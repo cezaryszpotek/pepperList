@@ -108,7 +108,7 @@ def urlScrap(driver, shopname):     #scrapping url from site
         return namedict[shopname]
     else:
         if namedict!={}:
-            print(shopname,'not found. Maybe you are looking for:')
+            print(shopname,'not found. Are you looking for:')
             for key in namedict:
                 print('-%s' % key)
             ipt = input()
