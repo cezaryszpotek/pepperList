@@ -1,6 +1,7 @@
 # pepperList
 
-A script that creates a qr code with discounted products of selected stores in form of list.
+A script that creates a ASCI qr code with discounted products of selected stores in form of list.
+
 
 Parameters can be used in program:
 
