@@ -10,12 +10,17 @@ Pepper list generator. Works only in python3
 usage: pepperList.py shop_names [-h] [-v] [-t TEMP] [-d DAYS_AGO] [-p PAGES_NUM]
 
 options:
-  -h, --help            show this help message and exit
-  -v, --visible         disable browser headless mode
-  -t TEMP, --temp TEMP  temperature of products on list
-  -d DAYS_AGO, --days_ago DAYS_AGO
+
+  -h, --help -            show this help message and exit
+
+  -v, --visible -         disable browser headless mode
+
+  -t TEMP, --temp TEMP -  temperature of products on list
+
+  -d DAYS_AGO, --days_ago DAYS_AGO -
                         products search from X days ago
-  -p PAGES_NUM, --pages_num PAGES_NUM
+
+  -p PAGES_NUM, --pages_num PAGES_NUM -
                         number of pages to search product
 
 ...
