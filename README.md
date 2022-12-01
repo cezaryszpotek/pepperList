@@ -1,32 +1,32 @@
 # pepperList
 
-A script that creates a ASCI qr code with discounted products of selected stores in form of list.
+A script that creates an ASCI qr code with discounted products of selected stores in form of list.
 Project use selenium to scrape website with given parameters.
 
+...
 
-Parameters can be used in program:
+Pepper list generator. Works only in python3
 
--d --days - parameter which filter products in range of given days to current day.
+usage: pepperList.py shop_names [-h] [-v] [-t TEMP] [-d DAYS_AGO] [-p PAGES_NUM]
 
--t --temp - parameter which filter products above given number (product points)
+options:
+  -h, --help            show this help message and exit
+  -v, --visible         disable browser headless mode
+  -t TEMP, --temp TEMP  temperature of products on list
+  -d DAYS_AGO, --days_ago DAYS_AGO
+                        products search from X days ago
+  -p PAGES_NUM, --pages_num PAGES_NUM
+                        number of pages to search product
 
--p --pages_num - number of pages that needs to be scrolled down
-
--h --headless - run browser in background (recommended)
-
-After the given parameter enter the value after equal sign, e.g. --days=5
-
-Calling a script:
-$python3 main.py name_of_shops parameters
-
+...
 
 Example:
 
-$python3 main.py lidl -h
+$python3 pepperList.py lidl
 
-$python3 main.py auchan lidl neonet -d=9 -t=800 -p=4 -h
+$python3 pepperList.py auchan lidl neonet -d 9 -t 800 -p 4 -v
 
-
+...
 
 #REQUIREMENTS
 
