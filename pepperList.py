@@ -49,7 +49,7 @@ def siteClickDelay(driver, xpth):  # exception catcher when clicking
     return break_flag
 
 
-def findUrl(shoplist, headless_param):  # finding url in foler/site
+def findUrl(shoplist, headless_param):  # finding url
     db = shelve.open('url_list')
 
     shopdict = dict()
@@ -149,24 +149,21 @@ def searchingCore(name, url, parameters):  # products search
             name = item.find_element(By.CLASS_NAME, 'cept-tt').text  # product name
             if parameters.days_ago != None:
                 date = item.find_element(By.CLASS_NAME, 'hide--toW3').text  # product add-date
-
             try:
-                points_given = int(item.find_element(By.CLASS_NAME, "cept-vote-temp").text[:-1])  # product points
+                temperature_points = int(item.find_element(By.CLASS_NAME, "cept-vote-temp").text[:-1])  # product points
             except common.exceptions.NoSuchElementException:
-                points_given = 0
+                temperature_points = 0
             except:
-                points_given = 0
-
+                temperature_points = 0
             try:
                 price = item.find_element(By.CLASS_NAME, 'thread-price').text  # product price
             except common.exceptions.NoSuchElementException:
                 price = 'unknown'
 
-            if points_given > int(parameters.temp):
-                item_dict[points_given] = name + ': ' + price  # add to list
+            if temperature_points > int(parameters.temp) and dateCheck(date, parameters.days_ago): # checking if item suits to parameters
+                item_dict[temperature_points] = name + ': ' + price  # add to list
     except:
         print('Cannot get access to items')
-
     driver.close()
 
     txt = ''
@@ -230,13 +227,12 @@ def argPass(shoplist):
         default=500, help='temperature of products on list')
     parser.add_argument(
         '-d', '--days_ago', type=int,
-        default=7, help='products search from X days ago')
+        default=5, help='products search from X days ago')
     parser.add_argument(
         '-p', '--pages_num', type=int,
         default=5, help='number of pages to search product')
 
     parameters = parser.parse_args()
-
     shopdict = findUrl(shoplist, parameters.visible)
 
     for name in shopdict:
